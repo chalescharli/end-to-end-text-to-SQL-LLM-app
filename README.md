@@ -1,2 +1,40 @@
-# end to end text to SQL LLM app
-🚀 **End-to-End Text-to-SQL LLM Application using Google Gemini Pro & SQLite**  I’m excited to share that I’ve successfully built a complete **Text-to-SQL LLM Application** that converts natural language into SQL queries and dynamically fetches results from a database.  This project demonstrates real-world integration of LLMs with structured databases.  ---  # 🧠 How the System Works (Architecture Flow)  ### 1️⃣ User Question (Natural Language)  User enters a question in the Streamlit UI Example: "How many students are in 10th class?"  ⬇  ### 2️⃣ Prompt + Question Sent to Gemini API  The system sends: • Predefined structured prompt (with schema + examples) • User question  to the Google Gemini LLM.  ⬇  ### 3️⃣ LLM Generates SQL Query  Gemini analyzes the question and generates SQL based on the STUDENT table schema.  Example output: SELECT COUNT(*) FROM STUDENT WHERE CLASS="10th";  ⬇  ### 4️⃣ SQL Execution (SQLite Database)  The generated SQL query is executed on: 📂 student.db (SQLite database)  Using a custom database execution function.  ⬇  ### 5️⃣ Results Displayed in Streamlit  The query results are: • Displayed in DataFrame format • Available for CSV download • Stored in query history  ---  # 🏗 Detailed Process Flow  ✔ User enters natural language input ✔ Prompt engineering ensures structured SQL output ✔ LLM processes and returns SQL string ✔ SQL query executed securely ✔ Results fetched as list of tuples ✔ Data rendered in UI ✔ Optional CSV export  ---  # 🛠 Technology Stack Used  • Python • Streamlit – UI Framework • Google Gemini API – LLM • SQLite – Database • Pandas – Data Processing • python-dotenv – Environment Variable Management • Virtual Environment (venv)  ---  # 📂 Database Structure  Database: student.db Table: STUDENT  Columns: • NAME • CLASS • SECTION • ROLL  ---  # 💡 Key Implementation Highlights  ✅ Custom Prompt Engineering ✅ LLM-to-SQL structured output control ✅ Secure API key handling via .env ✅ Database integration with sqlite3 ✅ Dynamic query execution ✅ Clean UI architecture ✅ Modular Python functions ✅ Error handling for SQL execution ✅ Removal of markdown artifacts from LLM output  ---  # 🚧 Challenges Faced & Solved  • Handling deprecated Gemini SDK • Fixing content-type errors in API calls • Cleaning LLM outputs before SQL execution • Handling “table already exists” errors • Managing environment variables correctly  ---  # 🎯 What This Project Demonstrates  This project showcases:  🔹 Practical Generative AI Implementation 🔹 LLM + Database Integration 🔹 Real-world Prompt Engineering 🔹 Full-stack AI application building 🔹 Debugging and production-ready coding  This is not just a model call — it’s a complete working AI application pipeline.  ---  I am actively looking for opportunities in:  🔹 AI Engineer 🔹 LLM Application Developer 🔹 NLP Engineer 🔹 Generative AI Developer  If you’re hiring or building in AI, let’s connect!  #AI #LLM #GenerativeAI #Gemini #Streamlit #Python #SQL #MachineLearning #NLP #RishiRaj
+🚀 **End-to-End Text-to-SQL LLM Application**
+
+### 📌 Summary
+
+I built an AI-powered application that converts natural language questions into SQL queries and fetches results directly from a database using Google Gemini Pro.
+
+---
+
+### 💡 How it Works:
+
+1️⃣ User enters a question in simple English
+2️⃣ Gemini LLM converts it into a SQL query
+3️⃣ The query runs on a SQLite database
+4️⃣ Results are displayed instantly in the Streamlit app
+
+---
+
+### 🛠 Tech Used:
+
+• Python
+• Streamlit
+• Google Gemini API
+• SQLite
+• Pandas
+• python-dotenv
+
+---
+
+### 📚 What I Learned:
+
+• Real-world use of LLMs
+• Prompt engineering for SQL generation
+• Connecting AI models with databases
+• Handling errors and response cleaning
+
+This project strengthened my understanding of Generative AI and full-stack AI application development.
+
+Open to AI / ML / Generative AI opportunities 🚀
+
+#AI #LLM #GenerativeAI #Python #Streamlit #SQL #MachineLearning #RishiRaj
