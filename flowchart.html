@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to SQL Flowchart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .box {
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 300px;
+            transition: transform 0.3s;
+        }
+        .box:hover {
+            transform: scale(1.02);
+        }
+        .input-box {
+            background: #e3f2fd;
+            border: 3px solid #2196f3;
+            color: #1565c0;
+        }
+        .process-box {
+            background: #fff3e0;
+            border: 3px solid #ff9800;
+            color: #e65100;
+        }
+        .ai-box {
+            background: #f3e5f5;
+            border: 3px solid #9c27b0;
+            color: #6a1b9a;
+        }
+        .sql-box {
+            background: #e8f5e9;
+            border: 3px solid #4caf50;
+            color: #2e7d32;
+        }
+        .db-box {
+            background: #fce4ec;
+            border: 3px solid #e91e63;
+            color: #c2185b;
+        }
+        .output-box {
+            background: #e0f7fa;
+            border: 3px solid #00bcd4;
+            color: #00838f;
+        }
+        .arrow {
+            font-size: 30px;
+            color: #666;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .horizontal-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .connector {
+            width: 60px;
+            height: 4px;
+            background: #666;
+        }
+        .step-number {
+            background: #1e3c72;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .data-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .detailed-flow {
+            margin-top: 40px;
+        }
+        .detailed-flow h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+        }
+        .step-content {
+            flex: 1;
+            margin-left: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        .step-desc {
+            color: #666;
+            font-size: 14px;
+        }
+        .tech-stack {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f4f8;
+            border-radius: 10px;
+        }
+        .tech-stack h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tech-item {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Text to SQL LLM Application Flowchart</h1>
+        
+        <div class="flowchart">
+            <!-- Step 1: User Input -->
+            <div class="box input-box">
+                <span class="step-number">1</span>
+                📝 User Question (Natural Language)
+                <div class="data-label">"How many students are in 10th class?"</div>
+            </div>
+            
+            <div class="arrow">⬇️</div>
+            
+            <!-- Step 2: Gemini API -->
+            <div class="box ai-box">
+                <span class="step-number">2</span>
+                🤖 Google Gemini API
+                <div class="data-label">LLM processes the question</div>
+            </div>
+            
+            <div class="arrow">⬇️</div>
+            
+            <!-- Step 3: SQL Generation -->
+            <div class="box sql-box">
+                <span class="step-number">3</span>
+                📄 SQL Query Generated
+                <div class="data-label">SELECT COUNT(*) FROM STUDENT WHERE CLASS="10th"</div>
+            </div>
+            
+            <div class="arrow">⬇️</div>
+            
+            <!-- Step 4: Database Execution -->
+            <div class="box db-box">
+                <span class="step-number">4</span>
+                🗄️ SQLite Database
+                <div class="data-label">student.db - STUDENT table executes query</div>
+            </div>
+            
+            <div class="arrow">⬇️</div>
+            
+            <!-- Step 5: Results -->
+            <div class="box output-box">
+                <span class="step-number">5</span>
+                📊 Query Results
+                <div class="data-label">Display in Streamlit + CSV Download</div>
+            </div>
+        </div>
+
+        <div class="detailed-flow">
+            <h2>📋 Detailed Process Flow</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <div class="step-title">User Input</div>
+                    <div class="step-desc">User enters a natural language question in the Streamlit text input or selects from example questions.</div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <div class="step-title">Prompt + Question sent to Gemini</div>
+                    <div class="step-desc">The app sends a predefined prompt (with table schema and examples) along with the user's question to Google Gemini model.</div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <div class="step-title">LLM generates SQL Query</div>
+                    <div class="step-desc">Google Gemini analyzes the question and generates the corresponding SQL query based on the STUDENT table structure.</div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <div class="step-title">SQL Execution</div>
+                    <div class="step-desc">The generated SQL query is executed against the SQLite database (student.db) using the red_sql_query function.</div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <div class="step-content">
+                    <div class="step-title">Results Displayed</div>
+                    <div class="step-desc">Query results are displayed in a DataFrame format in Streamlit, with options to download as CSV. The query is also saved to history.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h3>🛠️ Technology Stack Used</h3>
+            <div class="tech-items">
+                <span class="tech-item">📱 Streamlit - UI Framework</span>
+                <span class="tech-item">🤖 Google Gemini - LLM</span>
+                <span class="tech-item">🗄️ SQLite - Database</span>
+                <span class="tech-item">🐍 Python - Language</span>
+                <span class="tech-item">📊 Pandas - Data Processing</span>
+                <span class="tech-item">🔑 python-dotenv - Environment Variables</span>
+            </div>
+        </div>
+
+        <div class="detailed-flow">
+            <h2>🔗 What Gives What Output?</h2>
+            
+            <div class="step" style="border-left-color: #2196f3;">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                    <div class="step-title">User Question (Text Input)</div>
+                    <div class="step-desc">→ Gives: Natural language question<br/>→ Goes to: Gemini API</div>
+                </div>
+            </div>
+            
+            <div class="step" style="border-left-color: #9c27b0;">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                    <div class="step-title">Gemini API (LLM)</div>
+                    <div class="step-desc">→ Takes: Prompt + User Question<br/>→ Gives: SQL Query (string)</div>
+                </div>
+            </div>
+            
+            <div class="step" style="border-left-color: #4caf50;">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                    <div class="step-title">SQL Query</div>
+                    <div class="step-desc">→ Takes: Generated SQL string<br/>→ Goes to: SQLite Database</div>
+                </div>
+            </div>
+            
+            <div class="step" style="border-left-color: #e91e63;">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <div class="step-title">SQLite Database (student.db)</div>
+                    <div class="step-desc">→ Takes: SQL Query<br/>→ Gives: Query Results (list of tuples)</div>
+                </div>
+            </div>
+            
+            <div class="step" style="border-left-color: #00bcd4;">
+                <span class="step-number">5</span>
+                <div class="step-content">
+                    <div class="step-title">Streamlit App (Output)</div>
+                    <div class="step-desc">→ Takes: Query Results<br/>→ Gives: DataFrame Display + CSV Download + History</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
